@@ -1,0 +1,1 @@
+LCLM (Block-MT): a d24-scale causal language model that reorders next-token prediction across parallel line-threads within each training block, evaluated head-to-head on ClimbMix against a size- and data-matched vanilla autoregressive baseline.

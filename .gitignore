@@ -1,0 +1,36 @@
+.venv/
+.venv
+__pycache__/
+*.pyc
+dev-ignore/
+report.md
+eval_bundle/
+
+# Secrets
+.env
+
+# Local setup
+CLAUDE.md
+wandb/
+.cmd/
+
+# Dump outputs (keep folder, ignore contents)
+dump/*
+!dump/.gitkeep
+
+# Local eval/run logs (per-run JSON/log artifacts; not for VC)
+cmd_logs/
+.cache/
+external_paper/
+related-work/
+design/shiyuan_temp.md
+design/multithread-engine-tmp.md
+temp.sh
+temp/
+/~/
+.claude/
+
+# Lab-cluster-specific SLURM/HPCC scripts (cluster paths, mail-user address)
+# -- not part of this public release; see .treeignore.
+runs/
+experiments/repro_hpcc/
