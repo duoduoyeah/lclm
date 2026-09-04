@@ -1,14 +1,11 @@
 """
 Pretraining dataset registry + parquet utilities.
 
-Two datasets are wired up today:
-  - climbmix (default): karpathy/climbmix-400b-shuffle, ~6.5k shards,
-    train = all but last shard, val = last shard.
-  - simple_story: duoduoyeah/simple-story-shuffle, 10 train + 10 val shards
-    (separate `shard_*` and `validation_*` files), used for tiny-model
-    debug / scaling experiments.
+climbmix (default): karpathy/climbmix-400b-shuffle, ~6.5k shards, train = all
+but last shard, val = last shard. climbmix_split is a local, length-capped
+derivative of it (see scripts/split_long_blocks.py).
 
-Select via the `NANOCHAT_DATASET={climbmix,simple_story}` env var.
+Select via the `NANOCHAT_DATASET` env var.
 """
 
 import os
@@ -45,16 +42,6 @@ DATASETS = {
         train_max_shard=6541,
         val_max_shard=6542,
         val_is_last_train_shard=True,
-    ),
-    "simple_story": DatasetSpec(
-        name="simple_story",
-        base_url="https://huggingface.co/datasets/duoduoyeah/simple-story-shuffle/resolve/main/data",
-        data_dir_name="simple_story_data",
-        train_prefix="shard_",
-        val_prefix="validation_",
-        train_max_shard=9,
-        val_max_shard=9,
-        val_is_last_train_shard=False,
     ),
     "climbmix_split": DatasetSpec(
         name="climbmix_split",
