@@ -30,7 +30,5 @@ temp/
 /~/
 .claude/
 
-# Lab-cluster-specific SLURM/HPCC scripts (cluster paths, mail-user address)
-# -- not part of this public release; see .treeignore.
 runs/
 experiments/repro_hpcc/
